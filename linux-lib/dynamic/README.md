@@ -52,8 +52,16 @@ Use:
 Where the name of the library is libctest.so. (This is why you must create the symbolic links or you will get the error "/usr/bin/ld: cannot find -lctest".)
 The libraries will NOT be included in the executable but will be dynamically linked during runtime execution.
 
-List Dependencies:
+## List Dependencies:
 
 The shared library dependencies of the executable can be listed with the command: ldd name-of-executable
 
-Example: ldd prog
+Example: 
+source env.sh (to set LD_LIBRARY_PATH)
+ldd prog
+```
+       linux-gate.so.1 =>  (0x007fb000)
+       libctest.so.1 => ./lib/libctest.so.1 (0x00e64000)
+       libc.so.6 => /lib/libc.so.6 (0x00a5d000)
+       /lib/ld-linux.so.2 (0x00a3b000)
+```
