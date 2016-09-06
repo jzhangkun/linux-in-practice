@@ -16,10 +16,10 @@ How to generate a shared object: (Dynamically linked object library file.) Note 
 This creates the library libctest.so.1.0 and symbolic links to it.
 
 It is also valid to cascade the linkage:
-
+```
     ln -sf ./lib/libctest.so.1.0 ./lib/libctest.so.1
     ln -sf ./lib/libctest.so.1  ./lib/libctest.so
-
+```
 
 If you look at the libraries in /lib/ and /usr/lib/ you will find both methodologies present. Linux developers are not consistent. What is important is that the symbolic links eventually point to an actual library.
 
@@ -34,8 +34,8 @@ If you look at the libraries in /lib/ and /usr/lib/ you will find both methodolo
 
 ## Library Links:
 
-- The link to /opt/lib/libctest.so allows the naming convention for the compile flag -lctest to work.
-- The link to /opt/lib/libctest.so.1 allows the run time binding to work. See dependency below.
+- The link to ./lib/libctest.so allows the naming convention for the compile flag -lctest to work.
+- The link to ./lib/libctest.so.1 allows the run time binding to work. See dependency below.
 
 Compile main program and link with shared object library:
 
@@ -51,3 +51,9 @@ Use:
 
 Where the name of the library is libctest.so. (This is why you must create the symbolic links or you will get the error "/usr/bin/ld: cannot find -lctest".)
 The libraries will NOT be included in the executable but will be dynamically linked during runtime execution.
+
+List Dependencies:
+
+The shared library dependencies of the executable can be listed with the command: ldd name-of-executable
+
+Example: ldd prog
