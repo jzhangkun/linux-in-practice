@@ -57,8 +57,8 @@ The libraries will NOT be included in the executable but will be dynamically lin
 The shared library dependencies of the executable can be listed with the command: ldd name-of-executable
 
 Example: 
-source env.sh (to set LD_LIBRARY_PATH)
-ldd prog
+- source env.sh (to set LD_LIBRARY_PATH)
+- ldd prog
 ```
        linux-gate.so.1 =>  (0x007fb000)
        libctest.so.1 => ./lib/libctest.so.1 (0x00e64000)
